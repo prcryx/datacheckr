@@ -2,24 +2,22 @@ package datacheckr
 
 type ValidationRule = func(any) bool
 
+// we can apply multiple validations to the data
 type Validator struct {
-	ValidationRules map[any][]ValidationRule
+	ValidationRules []ValidationRule
 }
 
-// we can apply multiple validations to the data
 func NewValidatorInstance() *Validator {
 	return &Validator{
-		ValidationRules: make(map[any][]ValidationRule),
+		ValidationRules: nil,
 	}
 }
 
 // to get validation rules are applied to the data
-func (validator *Validator) AddValidationRules(data any, validations ...ValidationRule) {
-	validator.ValidationRules[data] = validations
+func (validator *Validator) AddValidationRules(validations ...ValidationRule) {
+	validator.ValidationRules = validations
 }
 
-
-func (validator *Validator) Validate() bool{
-	// add logic !! 
+func (validator *Validator) Validate(data any) bool {
 	return false
 }

@@ -11,9 +11,9 @@ func main() {
 
 	email := "prcryx87@email.in"
 
-	validator.AddValidationRules(email, datacheckr.EmailValidation)
+	validator.AddValidationRules(datacheckr.EmailValidation)
 
-	isValid := validator.Validate()
+	isValid := validator.Validate(email)
 
 	fmt.Printf("Is ValidEmail: %v", isValid)
 }
