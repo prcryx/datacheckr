@@ -19,5 +19,10 @@ func (validator *Validator) AddValidationRules(validations ...ValidationRule) {
 }
 
 func (validator *Validator) Validate(data any) bool {
-	return false
+	for _, vRule := range validator.ValidationRules {
+		if !vRule(data) {
+			return false
+		}
+	}
+	return true
 }
