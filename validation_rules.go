@@ -34,3 +34,13 @@ func MinLenValidation(minLen int) ValidationRule {
 		return false
 	}
 }
+// max-length validation
+
+func MaxLenValidation(maxLen int) ValidationRule {
+	return func(value any) bool {
+		if str, ok :=ValidateString(value); ok{
+			return maxLen > len(str)
+		}
+		return false
+	}
+}
