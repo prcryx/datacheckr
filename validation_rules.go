@@ -7,7 +7,7 @@ import (
 // Global variables
 
 var (
-	EmailRegexp *regexp.Regexp = regexp.MustCompile(EmailRegexStr)
+	EmailRegexp        *regexp.Regexp = regexp.MustCompile(EmailRegexStr)
 	URLSubdomainRegexp *regexp.Regexp = regexp.MustCompile(URLSubdomain)
 )
 
@@ -22,4 +22,15 @@ func EmailValidation(value any) bool {
 		}
 	}
 	return false
+}
+
+// min-length validation
+
+func MinLenValidation(minLen int) ValidationRule {
+	return func(value any) bool {
+		if str, ok :=ValidateString(value); ok{
+			return minLen < len(str)
+		}
+		return false
+	}
 }

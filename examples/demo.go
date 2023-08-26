@@ -11,7 +11,7 @@ func main() {
 
 	email := "prcryx87@email.in"
 
-	validator.AddValidationRules(datacheckr.EmailValidation)
+	validator.AddValidationRules(datacheckr.EmailValidation, datacheckr.MinLenValidation(3))
 
 	isValid := validator.Validate(email)
 
