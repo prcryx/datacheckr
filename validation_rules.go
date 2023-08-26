@@ -15,11 +15,7 @@ var (
 
 func EmailValidation(value any) bool {
 	if email, ok := ValidateString(value); ok {
-		if !EmailRegexp.MatchString(email) {
-			return false
-		} else {
-			return true
-		}
+		return EmailRegexp.MatchString(email)
 	}
 	return false
 }
@@ -28,17 +24,18 @@ func EmailValidation(value any) bool {
 
 func MinLenValidation(minLen int) ValidationRule {
 	return func(value any) bool {
-		if str, ok :=ValidateString(value); ok{
+		if str, ok := ValidateString(value); ok {
 			return minLen < len(str)
 		}
 		return false
 	}
 }
+
 // max-length validation
 
 func MaxLenValidation(maxLen int) ValidationRule {
 	return func(value any) bool {
-		if str, ok :=ValidateString(value); ok{
+		if str, ok := ValidateString(value); ok {
 			return maxLen > len(str)
 		}
 		return false
