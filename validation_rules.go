@@ -39,3 +39,25 @@ func MaxStrLenValidation(maxLen int) ValidationRule {
 		return false
 	}
 }
+
+// max val validation
+
+func MaxValValidation[Num Number](maxVal Num) ValidationRule {
+	return func(value any) bool {
+		if num, err := validateNum[Num](value); err == nil {
+			return maxVal > num
+		}
+		return false
+	}
+}
+
+// min val validation
+
+func MinValValidation[Num Number](minVal Num) ValidationRule {
+	return func(value any) bool {
+		if num, err := validateNum[Num](value); err == nil {
+			return minVal < num
+		}
+		return false
+	}
+}
