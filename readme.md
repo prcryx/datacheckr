@@ -16,6 +16,8 @@ init commit.
 
 1. time checker: before, after, equalto, before or equalto, after or equalto checker
 
+1. url scheme validation
+
 **Incomplete**
 
 ## LICENSE

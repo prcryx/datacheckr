@@ -12,7 +12,7 @@ func main() {
 	email1 := "prcryx87@email.in" //valid email
 	email2 := "prcryx87email.in"  // not valid email
 
-	validator.AddValidationRules(datacheckr.EmailValidation, datacheckr.MinLenValidation(3))
+	validator.AddValidationRules(datacheckr.EmailValidation, datacheckr.MinStrLenValidation(5))
 
 	IsEmail1 := validator.Validate(email1)
 	fmt.Printf("%v is valid : %v\n", email1, IsEmail1)
